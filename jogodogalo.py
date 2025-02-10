@@ -4,7 +4,7 @@ def print_board(board):
         print("-" * 5)
 
 def check_winner(board, player):
-    # Check rows, columns and diagonals
+    # Verificar linhas, colunas e diagonais
     for row in board:
         if all(s == player for s in row):
             return True
@@ -25,29 +25,29 @@ def tic_tac_toe():
     while True:
         print_board(board)
         try:
-            col = int(input(f"Player {current_player}, enter the column (0, 1, 2): "))
-            row = int(input(f"Player {current_player}, enter the row (0, 1, 2): "))
+            col = int(input(f"Jogador {current_player}, insira a coluna (0, 1, 2): "))
+            row = int(input(f"Jogador {current_player}, insira a linha (0, 1, 2): "))
             if row not in [0, 1, 2] or col not in [0, 1, 2]:
-                print("Invalid input. Please enter a number between 0 and 2.")
+                print("Já agora continua até ao infinito e mais além")
                 continue
         except ValueError:
-            print("Invalid input. Please enter a number between 0 and 2.")
+            print("Já agora continua até ao infinito e mais além")
             continue
 
         if board[row][col] != " ":
-            print("Cell already taken, try again.")
+            print("Deves mesmo achar que és esperto, não é? Jogar fora da grelha não é permitido!")
             continue
 
         board[row][col] = current_player
 
         if check_winner(board, current_player):
             print_board(board)
-            print(f"Player {current_player} wins!")
+            print(f"Que lindo, {current_player} ganhou um par de chinelos!")
             break
 
         if is_full(board):
             print_board(board)
-            print("It's a tie!")
+            print("Bom era se alguém ganhasse, mas não foi o caso. Empate!")
             break
 
         current_player = "O" if current_player == "X" else "X"
