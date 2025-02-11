@@ -20,7 +20,7 @@ def check_voting_eligibility():
         print("podes votar paspalhoum")
     else:
         print("espera aí, não podes votar, ainda não tens idade para isso")
-    time.sleep(3)
+    time.sleep(2)
 
 if __name__ == "__main__":
     check_voting_eligibility()
