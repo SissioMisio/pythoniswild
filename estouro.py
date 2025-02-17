@@ -8,7 +8,7 @@ def check_drinks():
         else:
             print("Vá lá, ainda podes mamar mais umas quantas, mas não abuses! Olha a PIDE!")
     except ValueError:
-        print("Já deves estar todo estourado, só podes meter números inteiros, não é assim tão difícil! Levas com dois estoiros dum bacalhau!")
+        print("Já deves estar todo estourado, meu ganda paspalhoum! Mete só números inteiros! Larga a broa!")
 
 if __name__ == "__main__":
     check_drinks()
