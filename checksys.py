@@ -27,8 +27,8 @@ def get_os_info():
 
 def main():
     os_name, os_version = get_os_info()
-    print(f"Operating System: {os_name}")
-    print(f"OS Version: {os_version}")
+    print(f"Sistema Operativo: {os_name}")
+    print(f"Versão de SO: {os_version}")
 
 if __name__ == "__main__":
     main()
