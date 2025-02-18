@@ -14,6 +14,14 @@ def get_os_info():
                         break
         except FileNotFoundError:
             pass
+    elif os_name == "Windows":
+        os_version = platform.release()
+        if os_version == "10":
+            try:
+                if int(platform.version().split('.')[2]) >= 22000:
+                    os_version = "11"
+            except (IndexError, ValueError):
+                pass
     
     return os_name, os_version
 
