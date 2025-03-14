@@ -33,7 +33,7 @@ def tic_tac_toe():
                 print("Já agora continua até ao infinito e mais além")
                 continue
         except ValueError:
-            print("Já agora continua até ao infinito e mais além")
+            print("Que tal inserir um número permitido? Deves achar que és esperto, não é?")
             continue
 
         if board[row][col] != " ":
@@ -44,7 +44,7 @@ def tic_tac_toe():
 
         if check_winner(board, current_player):
             print_board(board)
-            print(f"Que lindo, {current_player} ganhou um par de chinelos!")
+            print(f"Que lindo, {current_player} ganhou um par de absolutamente nada!")
             break
 
         if is_full(board):
