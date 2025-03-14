@@ -28,9 +28,12 @@ def tic_tac_toe():
         print_board(board)
         try:
             col = int(input(f"Jogador {current_player}, insira a coluna (0, 1, 2): "))
+            if col not in [0, 1, 2]:
+                print("Credo, é mesmo difícil perceber o que te disse. Tenta outra vez.")
+                continue
             row = int(input(f"Jogador {current_player}, insira a linha (0, 1, 2): "))
-            if row not in [0, 1, 2] or col not in [0, 1, 2]:
-                print("Já agora continua até ao infinito e mais além")
+            if row not in [0, 1, 2]:
+                print("Creio que não percebeste o que te disse. Tenta outra vez.")
                 continue
         except ValueError:
             print("Que tal inserir um número permitido? Deves achar que és esperto, não é?")
