@@ -25,7 +25,7 @@ while True:
 
     if ask_again and check_count >= 15:
         while True:
-            continue_checking = input("keep goin cune? (y/n): ").lower()
+            continue_checking = input("keep goin cunt? (y/n): ").lower()
             if continue_checking in ("y", "n"):
                 break
             else:
