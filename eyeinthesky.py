@@ -19,7 +19,10 @@ def check_and_install_prerequisites():
     try:
         import curses
     except ImportError:
-        missing.append("curses")
+        if os.name == 'nt':  # On Windows, install windows-curses instead
+            missing.append("windows-curses")
+        else:
+            missing.append("curses")
 
     # Check for sensors command (only on Linux)
     if os.name != 'nt':  # Skip sensors check on Windows
@@ -45,6 +48,8 @@ def check_and_install_prerequisites():
             for item in missing:
                 if item == "psutil":
                     subprocess.run([sys.executable, "-m", "pip", "install", "psutil"])
+                elif item == "windows-curses":
+                    subprocess.run([sys.executable, "-m", "pip", "install", "windows-curses"])
                 elif item == "curses":
                     print("Error: The 'curses' module cannot be installed via pip. It is typically included with Python on Unix-based systems.")
                     print("Please ensure your Python installation includes 'curses' and try again.")
@@ -82,7 +87,7 @@ def get_temperatures():
     else:  # Linux-specific temperature fetching
         temperatures = {}
         try:
-            sensors_output = subprocess.check_output(['sensors']).decode('utf-8')
+            sensors_output = subprocess.check_output(['sensors']).decode('utf-8') 
             for line in sensors_output.splitlines():
                 if ':' in line:
                     key, value = line.split(':', 1)
