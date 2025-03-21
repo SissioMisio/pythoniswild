@@ -73,6 +73,8 @@ def get_temperatures():
         except wmi.x_wmi as e:
             if "OLE error 0x80041003" in str(e):
                 return {"Temperature": "Permission denied. Run as administrator."}
+            elif "OLE error 0x8004100c" in str(e):
+                return {"Temperature": "Temperature data unavailable. Ensure your system supports thermal sensors."}
             else:
                 return {"Temperature": f"Error: {e}"}
         except Exception as e:
